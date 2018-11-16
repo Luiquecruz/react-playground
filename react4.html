@@ -1,0 +1,26 @@
+<div id="root"></div>
+<script src="https://unpkg.com/react@16.0.0-rc.3/umd/react.development.js"></script>
+<script src="https://unpkg.com/react-dom@16.0.0-rc.3/umd/react-dom.development.js"></script>
+<script src="https://unpkg.com/prop-types@15.6.0/index.js"></script>
+<script src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
+
+<script type="text/babel">
+  const rootElement = document.getElementById('root')
+  
+  class SayHello extends React.Component {
+    static propTypes = {
+      firstName: PropTypes.string.isRequired,
+      lastName: PropTypes.string.isRequired,
+    }
+    render() {
+      const {firstName, lastName} = this.props
+      return (
+        <div>
+          Hello {props.firstName} {props.lastName}!
+        </div>
+      )
+    } 
+  }
+  
+  ReactDOM.render(SayHello, rootElement)
+</script>

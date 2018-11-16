@@ -1,0 +1,22 @@
+<body>
+  <div id="root"></div>
+  <script src="https://unpkg.com/react@16.0.0-rc.3/umd/react.production.min.js"></script>
+  <script src="https://unpkg.com/react-dom@16.0.0-rc.3/umd/react-dom.production.min.js"></script>
+  <script src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
+
+  <script type="text/babel">
+    const rootElement = document.getElementById('root')
+
+    // component
+    const Message = ({ message }) => !message ? <div>No Message</div> : <div>{ message }</div>
+
+    // Component way
+    const element = (
+      <div className="container">
+        <Message message={null}/>
+      </div>
+    )
+
+    ReactDOM.render(element, rootElement)
+  </script>
+</body>
