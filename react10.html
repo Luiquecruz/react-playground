@@ -1,0 +1,80 @@
+<body>
+  <div id="root"></div>
+  <script src="https://unpkg.com/react@16.0.0-rc.3/umd/react.production.min.js"></script>
+  <script src="https://unpkg.com/react-dom@16.0.0-rc.3/umd/react-dom.production.min.js"></script>
+  <script src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
+  <script src="https://unpkg.com/vanilla-tilt@1.4.1/dist/vanilla-tilt.min.js"></script>
+
+  <style>
+    body { overflow: hidden; }
+
+    .tilt-root {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100vw;
+      height: 100vh;
+    }
+
+    .tilt-child {
+      transform-style: preserve-3d;
+      transform: translateZ(20px);
+      background: linear-gradient(
+        140deg,
+        #cc078a 33%,
+        #f8e006 80%
+      );
+      padding: 80px;
+    }
+
+    .totally-centered  {
+      /* transform: translateZ(20px); */
+      box-shadow: 0 0 30px -2px rgba(0,0,0,.3);
+      background-color: #fff;
+      font-size: 20px;
+      font-weight: bold;
+      padding: 40px 20px;
+    }
+  </style>
+
+  <script type="text/babel">
+    const rootEl = document.getElementById('root');
+
+    class Tilt extends React.Component {
+      componentDidMount() {
+        VanillaTilt.init(this.rootNode, {
+          max: 25,
+          speed: 400,
+          glare: true,
+          'max-glare': 0.5,
+        })
+      }
+      
+      render() {
+        return (
+          <div
+          ref={node => (this.rootNode = node)}
+            className="tilt-root"
+          >
+            <div className="tilt-child">
+              <div {...this.props} />
+            </div>
+          </div>
+        )
+      }
+    }
+
+    const element = (
+      <div className="totally-centered">
+        <Tilt>
+          <div className="totally-centered">
+            vanilla-tilt.js
+          </div>
+        </Tilt>
+      </div>
+    )
+
+    // const element = <Tilt />
+    ReactDOM.render(element, rootEl)
+  </script>
+</body>
