@@ -4,67 +4,27 @@
   <script src="https://unpkg.com/react-dom@16.0.0-rc.3/umd/react-dom.production.min.js"></script>
   <script src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
 
-  <!-- styling a component -->
-  <style>
-    .box {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .output {
-      color: #333;
-      font-size: 32px;
-      font-weight: bold;
-      margin: 30px 0;
-    }
-
-    .btn {
-      all: unset;
-      border-radius: 6px;
-      border: 1px solid #eee;
-      background-color: #fff;
-      box-shadow: 0 3px 6px rgba(0, 0, 0, .03);
-      color: #333;
-      padding: 6px 12px;
-      margin: 5px;
-    }
-  </style>
-
   <script type="text/babel">
     const rootEl = document.getElementById('root');
 
-    class StopWatch extends React.Component{
-      state = {lapse: 0, isRunning: false}
-      
-      handleStartClick = () => {
-        this.setState({lapse: 10, isRunning: true})
+    class Counter extends React.Component {
+        state = {count: 0}
+        handleClick = () => {
+          this.setState(({count}) => ({
+            count: count + 1,
+          }))
+        }
 
-      }
-
-      handleClearClick = () => {
-        
-      }
-      
-      render(){
-        const {lapse, isRunning} = this.state;
+      render() {
         return (
-          <div className="box">
-            <label className="output">{lapse}ms</label>
-
-            <button className="btn" onClick={this.handleStartClick}>
-              {isRunning ? 'Stop' : 'Start'}
-            </button>
-            
-            <button className="btn" onClick={this.handleClearClick}>Clear</button>
-          </div>
+          <button onClick={this.handleClick}>
+            {this.state.count}
+          </button>
         )
       }
     }
 
-
-    const element = <StopWatch />
+    const element = <Counter />
     ReactDOM.render(element, rootEl)
   </script>
 </body>
