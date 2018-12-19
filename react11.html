@@ -6,14 +6,28 @@
 
   <script type="text/babel">
     const rootEl = document.getElementById('root');
-
+      
     class NameForm extends React.Component {
-      render() {
+      handleSubmit = event => {
+        event.preventDefault()
+        console.log({target: event.target})
+        console.log(event.target[0].value)
+        console.log(event.target.elements.username.value)
+      }
+
+      render () {
         return (
-          <div></div>
+          <form onSubmit={this.handleSubmit}>
+            <label>
+              Name:
+              <input type="text" name="username" ref={node => (this.inputNode = node)}/>  
+            </label>
+            <button type="submit">Submit</button>
+          </form>
         )
       }
     }
+
     const element = <NameForm />
     ReactDOM.render(element, rootEl)
   </script>

@@ -6,15 +6,57 @@
 
   <script type="text/babel">
     const rootEl = document.getElementById('root');
+      
+    class NameForm extends React.Component {
+      state = {error: null}
+      handleSubmit = event => {
+        event.preventDefault()
 
-    class ComponentName extends React.Component {
-      render() {
+        const value = event.target.elements.username.value
+
+        const error = this.props.getErrorMessage(value,)
+
+        if (error) {
+          alert(`error: ${error}`)
+        } else {
+          alert(`success: ${value}`)
+        }
+      }
+
+      handleChange = (event) => {
+        const {value} = event.target
+        this.setState({
+          error: this.props.getErrorMessage(value),
+        })
+      }
+
+      render () {
+        const {error} = this.state
+
         return (
-          <div></div>
+          <form onSubmit={this.handleSubmit}>
+            <label>
+              Name:
+              <input type="text" name="username" onChange={this.handleChange}/>  
+            </label>
+            <button disables={Boolean(error)} type="submit">Submit</button>
+          </form>
         )
       }
     }
-    const element = <ComponentName />
+
+    const element = <NameForm
+      getErrorMessage={value => {
+        if (value.length < 3) {
+          return `Value must be at least 3 characters`
+        }
+        if (!value.includes('s')) {
+          return `Value does not include "S"`
+        }
+        return null
+      }}
+    />
+
     ReactDOM.render(element, rootEl)
   </script>
 </body>
