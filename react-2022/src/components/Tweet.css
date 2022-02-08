@@ -1,0 +1,22 @@
+.tweet {
+    width: 100%;
+    border: 1px solid #eee;
+    padding: 1rem;
+    transition: 200ms;
+}
+
+.tweet:hover {
+    box-shadow: .25rem 1rem 1rem rgba(0, 0, 0, .05);
+}
+
+.tweet + .tweet {
+    margin-top: 1rem;
+}
+
+.tweet__title {
+    margin-top: 0;
+}
+
+.tweet__text {
+    font-size: .875rem;
+}
