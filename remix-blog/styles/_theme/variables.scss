@@ -1,0 +1,48 @@
+// base colors
+$primary: #3a86ff;
+$secondary: #8338ec;
+$tertiary: #ff006e;
+
+$theme-map: (
+  primary: $primary,
+  primary-light: lighten($primary, 10%),
+  primary-lighten: lighten($primary, 30%),
+  primary-dark: darken($primary, 10%),
+  primary-darken: darken($primary, 30%),
+  secondary: $secondary,
+  secondary-light: lighten($secondary, 10%),
+  secondary-lighten: lighten($secondary, 30%),
+  secondary-dark: darken($secondary, 10%),
+  secondary-darken: darken($secondary, 30%),
+  tertiary: $tertiary,
+  tertiary-light: lighten($tertiary, 10%),
+  tertiary-lighten: lighten($tertiary, 30%),
+  tertiary-dark: darken($tertiary, 10%),
+  tertiary-darken: darken($tertiary, 30%),
+);
+
+:root {
+  // theme colors
+  @each $name, $color in $theme-map {
+    --#{$name}: #{$color};
+  }
+
+  // default colors
+  --dark: #121212;
+  --light: #fefefe;
+  --border: #efefef;
+  --ghost: rgba(0,0,0,.0);
+
+  // system
+  --danger: #f8333c;
+  --warning: #fcab10;
+  --success: #44af69;
+  --info: #2b9eb3;
+
+  // default settings
+  --base-font-size: 16px;
+
+  --radius: 6px;
+
+  --time: 225ms;
+}

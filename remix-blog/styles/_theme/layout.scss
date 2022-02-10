@@ -1,0 +1,30 @@
+.navbar {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 1rem;
+  background: var(--light);
+  border-bottom: .0625rem solid var(--border);
+
+  .logo {
+    color: var(--dark);
+    text-decoration: none;
+    font-size: 2rem;
+    font-weight: 700;
+  }
+
+  .nav {
+    list-style: none;
+    margin: 0 0 0 auto;
+    padding: 0;
+
+    li {
+      a {
+        color: var(--dark);
+        text-decoration: none;
+        text-transform: uppercase;
+        font-size: 1rem;
+      }
+    }
+  }
+}
