@@ -4,6 +4,9 @@
 @import '_theme/layout';
 
 // _shared
-@import '_shared/buttons';
+@import '_shared/shared';
 
-// @TODO: figure out how to work with theme page styles and fallback styles
+// _pages
+@import '_theme/_pages/pages';
+
+// @TODO: figure out how to work with fallback styles

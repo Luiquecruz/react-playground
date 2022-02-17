@@ -1,9 +1,5 @@
 import {
-  Meta,
-  Links,
-  LiveReload,
-  Outlet,
-  ScrollRestoration
+  Meta, Links, LiveReload, Outlet, ScrollRestoration,
 } from "remix";
 
 import styles from '~/styles/global.css';
@@ -18,47 +14,53 @@ export const meta = () => {
   const description = 'A blog built from bottom up with Remix';
 
   return {
-    charSet,
-    viewport,
-    description
+    charSet, viewport, description
   }
 }
 
 // Embed links
-export const links = () => [
-  {
-    rel: "stylesheet",
-    href: styles
-  }
-];
+export const links = () => [ {
+  rel: "stylesheet", href: styles
+} ];
 
 // @TODO: Setup GTM & FB Pixel
 
 export default function App() {
-  return (
-    <Document>
+  return (<Document>
       <Layout>
         <Outlet />
       </Layout>
-    </Document>
-  );
+    </Document>);
 }
 
 function Document({ children }) {
   return (
     <html lang="en">
-      {/* @TODO: Setup i18n */}
+      {/* @TODO: Setup i18n */ }
       <head>
         <Meta />
         <title>{ process.env?.SITE_NAME || 'Remix Blog' }</title>
         <Links />
       </head>
-      <body className={`page getCurrentRouteNameParams`}>
-        {/* @TODO: Get current route params to use as body class */}
-        { children }
-        <ScrollRestoration />
-        { process.env.NODE_ENV === "development" && <LiveReload /> }
+
+      <body>
+      {/* @TODO: Get current route params to use as body class */ }
+      { children }
+      <ScrollRestoration />
+      { process.env.NODE_ENV === "development" && <LiveReload /> }
       </body>
     </html>
+  );
+}
+
+// application error boundary
+export function ErrorBoundary({ error }) {
+  return (
+    <Document>
+      <Layout>
+        <h1>An error has happened :(</h1>
+        <p>{ error.message }</p>
+      </Layout>
+    </Document>
   );
 }

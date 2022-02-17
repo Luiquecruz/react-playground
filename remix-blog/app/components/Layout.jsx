@@ -1,25 +1,21 @@
-import { Link } from "remix";
+import { useLocation } from "remix";
+
+import Header from "~/components/Header";
+import Footer from "~/components/Footer";
 
 export default function Layout({ children }) {
+  const location = useLocation();
+  const pageClass = location.pathname.slice(1).replace('/', '__');
+
   return (
     <>
-      <nav className="navbar">
-        <Link to="/" className="logo">
-          Logo
-        </Link>
+      <Header />
 
-        <ul className="nav">
-          <li>
-            <Link to="/posts">
-              Posts
-            </Link>
-          </li>
-        </ul>
-      </nav>
-
-      <div className="container">
+      <main className={`page ${pageClass}`}>
         { children }
-      </div>
+      </main>
+
+      <Footer />
     </>
   );
 }
