@@ -1,0 +1,12 @@
+.docs section h3 a {
+  color: var(--dark);
+  text-decoration: none; }
+
+.docs section details summary {
+  padding: .75rem 0 .75rem 1rem;
+  cursor: pointer; }
+  .docs section details summary strong {
+    padding-left: .625rem; }
+
+.docs section details .wrapper {
+  padding: 0 1rem; }
