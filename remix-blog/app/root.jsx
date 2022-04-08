@@ -1,5 +1,9 @@
 import {
-  Meta, Links, LiveReload, Outlet, ScrollRestoration,
+  Meta,
+  Links,
+  LiveReload,
+  Outlet,
+  ScrollRestoration,
 } from "remix";
 
 import styles from '~/styles/global.css';
@@ -27,10 +31,10 @@ export const links = () => [ {
 
 export default function App() {
   return (<Document>
-      <Layout>
-        <Outlet />
-      </Layout>
-    </Document>);
+    <Layout>
+      <Outlet />
+    </Layout>
+  </Document>);
 }
 
 function Document({ children }) {
