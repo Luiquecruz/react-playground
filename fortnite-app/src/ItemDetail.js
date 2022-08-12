@@ -24,6 +24,8 @@ function Item({ match, history }) {
     const item = await data.json();
 
     setItem(item.item);
+
+    console.log(item.item)
   };
 
   return (
@@ -32,14 +34,14 @@ function Item({ match, history }) {
         className="item-detail"
         style={{
           background: `
-          linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9)),
+          linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.9)),
           url(${item.images.full_background}) no-repeat center / cover
           `,
         }}
       >
         <div className="pane">
           <div className="cover">
-            <img src={item.images.full_size} alt={item.name} />
+            <img src={item.images.full_background} alt={item.name} />
           </div>
 
           <div className="info">
