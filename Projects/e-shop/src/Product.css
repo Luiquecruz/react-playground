@@ -9,6 +9,7 @@
   max-height: 400px;
   min-width: 100px;
   background-color: white;
+  box-shadow: 1px 0 12px 1px rgba(0, 0, 0, .05);
   z-index: 1;
 }
 
