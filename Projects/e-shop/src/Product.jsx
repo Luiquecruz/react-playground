@@ -2,6 +2,7 @@ import { useStateValue } from "./StateProvider";
 import "./Product.css";
 
 export default function Product({ id, title, image, price, rating }) {
+  // eslint-disable-next-line
   const [state, dispatch] = useStateValue();
 
   const addToBasket = () => {

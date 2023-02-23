@@ -8,7 +8,7 @@ import SearchIcon from '@material-ui/icons/Search';
 import './Header.css';
 
 export default function Header() {
-  const [{ basket }, dispatch] = useStateValue();
+  const [{ basket }] = useStateValue();
 
   return (
     <div className="header">
@@ -25,10 +25,10 @@ export default function Header() {
       </div>
 
       <div className="header__nav">
-        <div className="nav__item">
+        <Link to="/login" className="nav__item" style={{ textDecoration: "none" }}>
           <span className="nav__itemLineOne">Hello Guest</span>
           <span className="nav__itemLineTwo">Sign In</span>
-        </div>
+        </Link>
 
         <div className="nav__item">
           <span className="nav__itemLineOne">Your</span>
@@ -42,6 +42,6 @@ export default function Header() {
           </div>
         </Link>
       </div>
-    </div>
+    </div >
   )
 }
