@@ -1,0 +1,61 @@
+.menu-wrapper {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.menu-wrapper .menu,
+.menu-wrapper .aux-menu {
+  display: flex;
+}
+
+.menu-wrapper .menu li,
+.menu-wrapper .aux-menu li {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  font-family: var(--font-bold);
+  cursor: pointer;
+  font-size: 14px;
+  color: var(--black);
+  padding: 6px 7px;
+  border-radius: 20px;
+  transition: 125ms;
+}
+
+/* prevent hover instability */
+.menu-wrapper .menu li::before,
+.menu-wrapper .aux-menu li::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  padding: 40px 0;
+}
+
+.menu-wrapper .menu li a,
+.menu-wrapper .aux-menu li a {
+  text-decoration: none;
+  color: var(--black);
+  transition: 125ms;
+}
+
+.menu-wrapper .menu li:hover,
+.menu-wrapper .aux-menu li:hover,
+.menu-wrapper .menu li.active,
+.menu-wrapper .aux-menu li.active {
+  border-radius: 20px;
+  background: var(--black);
+  color: var(--white);
+}
+
+.menu-wrapper .menu li:hover a,
+.menu-wrapper .aux-menu li:hover a,
+.menu-wrapper .menu li.active a,
+.menu-wrapper .aux-menu li.active a {
+  color: var(--white);
+}
+
+.menu-wrapper .aux-menu {
+  margin-left: auto;
+}

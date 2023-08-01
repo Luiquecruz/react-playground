@@ -1,0 +1,37 @@
+.header-wrapper {
+  background: var(--white);
+  width: 100%;
+}
+
+.header-wrapper .header {
+  display: flex;
+  align-items: center;
+  max-width: 1440px;
+  width: 100%;
+  min-height: 80px;
+  padding-left: 16px;
+  padding-right: 16px;
+  margin: 0 auto;
+}
+
+.header-wrapper .header .logo {
+  line-height: 8px;
+  margin-right: 64px;
+  padding: 0 8px;
+}
+
+.header-wrapper .header .actions {
+  display: flex;
+  margin-left: 36px;
+  padding-right: 8px
+}
+
+.header-wrapper .header .actions button {
+  all: unset;
+  cursor: pointer;
+  line-height: 8px;
+}
+
+.header-wrapper .header .actions button + button {
+  margin-left: 24px;
+}

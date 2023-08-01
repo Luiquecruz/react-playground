@@ -1,0 +1,11 @@
+@import '/src/assets/fonts/fonts.css';
+
+@import '/src/assets/styles/variables.css';
+
+@import '/src/assets/styles/settings.css';
+
+@import '/src/components/Header/header.css';
+@import '/src/components/HeaderMobile/header-mobile.css';
+@import '/src/components/MegaMenu/mega-menu.css';
+@import '/src/components/SideMenu/side-menu.css';
+@import '/src/components/Menu/menu.css';

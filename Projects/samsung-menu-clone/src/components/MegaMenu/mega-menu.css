@@ -1,0 +1,13 @@
+.mega-menu-wrapper {
+  position: absolute;
+  top: 80px;
+  left: 0;
+  background: var(--white);
+  width: 100%;
+}
+
+.mega-menu {
+  max-width: 1440px;
+  width: 100%;
+  margin: 0 auto;
+}
