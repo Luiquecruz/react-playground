@@ -44,7 +44,7 @@
 
         this.setState({
           multiline: value,
-          commaSeparated: value.join(','),
+          commaSeparated: allVals.join(','),
           multiSelect: allVals.filter(
             v => MyFancyForm.availableOptions.includes(v),
           ),
@@ -58,7 +58,7 @@
           )
 
         this.setState({
-          multiSelect: allValsm
+          multiSelect: allVals,
           multiline: allVals.join('\n'),
           commaSeparated: allVals.join(','),
         })
@@ -93,7 +93,7 @@
                 <textarea
                   value={multiline}
                   rows={MyFancyForm.availableOptions.length}
-                  onChange={this.handleCommaSeparatedChange}
+                  onChange={this.handleMultilineChange}
                 />
               </label>
             </div>
@@ -102,14 +102,16 @@
               <label>
                 multiSelect values:
                 <br />
-
                 <select
-                  multiple
-                  value={multiSelect}
-                  size={MyFancyForm.availableOptions.length}
-                  onChange={this.handleMultiSelectChange}
+                    multiple
+                    style={{minWidth: 180}}
+                    value={multiSelect}
+                    size={MyFancyForm.availableOptions.length}
+                    onChange={this.handleMultiSelectChange}
                 >
-
+                  {MyFancyForm.availableOptions.map(option => (
+                      <option key={option} value={option}>{option}</option>
+                  ))}
                 </select>
               </label>
             </div>

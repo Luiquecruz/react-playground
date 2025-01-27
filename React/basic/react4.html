@@ -8,19 +8,18 @@
   const rootElement = document.getElementById('root')
   
   class SayHello extends React.Component {
-    static propTypes = {
-      firstName: PropTypes.string.isRequired,
-      lastName: PropTypes.string.isRequired,
-    }
     render() {
       const {firstName, lastName} = this.props
+
       return (
         <div>
-          Hello {props.firstName} {props.lastName}!
+          Hello {firstName} {lastName}!
         </div>
       )
     } 
   }
-  
-  ReactDOM.render(SayHello, rootElement)
+
+  const element = <SayHello firstName="John" lastName="Doe" />
+
+  ReactDOM.render(element, rootElement)
 </script>
