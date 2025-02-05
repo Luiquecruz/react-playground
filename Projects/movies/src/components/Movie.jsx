@@ -13,8 +13,10 @@ const Movie = ({data: { poster_path, title, vote_average, release_date, original
 
   return (
     <div className="movie-card" role="button" tabIndex={0} aria-label={title} onClick={openDetails}>
-      <img src={posterPath} alt={title}/>
+      <img src={posterPath} alt={title} loading="lazy" width="500" height="750" />
+
       <h3 className="mt-4">{title}</h3>
+
       <div className="content">
         <div className="rating">
           <img src="./star.svg" alt="star icon"/>

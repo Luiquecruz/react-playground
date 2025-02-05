@@ -33,11 +33,13 @@ const Gallery = ({movieId}) => {
       {images &&
         <ul className="text-white max-md:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
           {processedBackdrops.map(backdrop => (
-            <img key={backdrop.file_path} src={backdrop.url} alt="backdrop" className="rounded-2xl"/>
+            <img key={backdrop.file_path} src={backdrop.url} alt="backdrop"
+                 loading="lazy" width="1280" height="720" className="rounded-2xl object-cover w-full h-full"/>
           ))}
 
           {processedPosters.map(poster => (
-            <img key={poster.file_path} src={poster.url} alt="poster" className="rounded-2xl"/>
+            <img key={poster.file_path} src={poster.url} alt="poster"
+                 loading="lazy" width="500" height="750" className="rounded-2xl object-cover w-full h-full"/>
           ))}
         </ul>
       }
