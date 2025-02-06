@@ -61,7 +61,7 @@ const App = () => {
       <div className="wrapper">
         <header>
           <h1>
-            Find <span className="text-gradient">Movies</span> You'll enjoy Without the hassle
+            Explore the <span className="text-gradient">7th Art</span> <br/> Classics to New Hits
           </h1>
 
           <Search searchTerm={searchTerm} setSearchTerm={setSearchTerm}/>
@@ -78,7 +78,7 @@ const App = () => {
 
           <ul>
             {movies.map(movie => (
-              <li key={movie.id + Math.random()} className="text-white">
+              <li key={movie.id} className="text-white">
                 <Movie data={movie} openDetails={() => openModal(movie)} />
               </li>
             ))}

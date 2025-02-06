@@ -24,7 +24,6 @@ const Gallery = ({movieId}) => {
     })) || []
   ), [images?.posters])
 
-
   return (
     <>
       {isLoading && <Loader />}
