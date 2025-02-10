@@ -1,7 +1,10 @@
-import {useEffect} from "react";
+import {useEffect, useRef} from "react";
+import {useClickAway} from "react-use";
 import PropTypes from "prop-types";
 
 const Modal = ({name, title, modalClass, isOpen, onClose, children, withFooter, footerAction, footerActionName}) => {
+  const ref = useRef(null);
+
   useEffect(() => {
     const handleKeyDown = (e) => {
       if (e.key === 'Escape') onClose();
@@ -12,14 +15,16 @@ const Modal = ({name, title, modalClass, isOpen, onClose, children, withFooter, 
     return () => document.removeEventListener('keydown', handleKeyDown);
   }, [isOpen, onClose]);
 
+  useClickAway(ref, onClose)
+
   if (!isOpen) return null
 
   return (
     <>
       <div className="modal-overlay">
-        <div className={`modal modal_${name} ${modalClass ?? ''}`}>
+        <div ref={ref} className={`modal modal_${name} ${modalClass ?? ''}`}>
           <div className="modal-header">
-            <h2>{title}</h2>
+            <h2 className="text-2xl">{title}</h2>
             <button className="modal-close" type="button" onClick={onClose}>&times;</button>
           </div>
 
