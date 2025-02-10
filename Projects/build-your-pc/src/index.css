@@ -5,7 +5,7 @@
 @theme {
   --color-primary: #FF5510;
   --color-dark: #010203;
-  --color-foreground: #0e0e0e;
+  --color-foreground: #18181b;
 }
 
 @layer base {
@@ -20,18 +20,19 @@
 
 @layer components {
   .wrapper {
-    @apply container mx-auto shadow-lg bg-foreground p-6 rounded-2xl;
+    @apply container mx-auto shadow-lg bg-dark p-6 rounded-2xl;
   }
 
   .btn {
-    @apply inline-block text-center cursor-pointer bg-dark font-bold shadow-lg py-4 px-6 rounded-2xl;
+    @apply inline-block text-center cursor-pointer bg-dark font-bold shadow-lg py-4 px-6 rounded-2xl
+    disabled:opacity-25 disabled:cursor-not-allowed disabled:bg-foreground disabled:hover:bg-foreground;
   }
 
   .modal-overlay {
     @apply fixed h-dvh w-screen inset-0 z-50 bg-[rgba(0,0,0,.7)];
 
     & .modal {
-      @apply md:max-w-xl md:my-6 md:rounded-2xl mx-auto bg-foreground p-5;
+      @apply md:max-w-2xl md:my-6 md:rounded-2xl mx-auto bg-foreground p-5;
 
       & .modal-header {
         @apply mb-5 flex items-center justify-between;
@@ -44,6 +45,28 @@
       & .modal-content {
         @apply overflow-y-auto hide-scrollbar h-[calc(100dvh_-_96px)] md:h-[calc(100dvh_-_96px_-_3rem)];
       }
+    }
+  }
+
+  .cart-overlay {
+    @apply fixed h-dvh w-screen inset-0 z-50 bg-[rgba(0,0,0,.7)];
+
+    & .cart {
+      @apply max-w-md w-full my-6 ml-auto -translate-x-6 md:rounded-2xl bg-foreground p-5;
+
+      & .cart-header {
+        @apply mb-5 flex items-center justify-between;
+
+        & .cart-close {
+          @apply cursor-pointer transition text-white opacity-75 text-3xl hover:opacity-100;
+        }
+      }
+
+      & .cart-content {
+        @apply overflow-y-auto hide-scrollbar h-[calc(100dvh_-_152px_-_3rem)];
+      }
+
+      & .cart-footer {}
     }
   }
 }
