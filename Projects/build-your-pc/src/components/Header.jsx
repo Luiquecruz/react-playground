@@ -1,9 +1,11 @@
 import {useState} from "react";
+import {useCart} from "../Hooks/useCart";
 
 import MiniCart from '../components/MiniCart';
 
 const Header = () => {
   const [open, setOpen] = useState(false);
+  const {items, clearCart, removeItem, totalItems, updateItemQuantity} = useCart()
 
   const openCart = () => {
     setOpen(true);
@@ -27,13 +29,20 @@ const Header = () => {
               <path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/>
             </svg>
 
-            <small className="absolute right-3 top-3 bg-primary rounded-full size-4 text-center text-xs">1</small>
+            <small className="absolute right-3 top-3 bg-primary rounded-full size-4 text-center text-xs">{totalItems}</small>
           </span>
         </button>
       </nav>
 
       <MiniCart isOpen={open} onClose={() => closeCart()}>
-        <p>child content</p>
+        {items.map(item => (
+          <div key={item.sku}>
+            <h3>{item.name}</h3>
+            <p>{item.price_info.price}</p>
+            <p>Quantity: {item.quantity}</p>
+            <button type="button" onClick={() => removeItem(item.sku)}>Remove</button>
+          </div>
+        ))}
       </MiniCart>
     </header>
   )

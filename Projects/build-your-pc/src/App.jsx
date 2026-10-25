@@ -1,14 +1,17 @@
 import { useState } from 'react'
+import {useCart} from "./Hooks/useCart";
+
 import Modal from "./components/Modal";
 import Header from "./components/Header";
 
 import {categoryList} from "./data/categoriesData";
 
 function App() {
-const [open, setOpen] = useState(false);
-const [currentCategory, setCurrentCategory] = useState({});
-const [categoryItems, setCategoryItems] = useState([]);
-const [cartData, setCartData] = useState([]);
+  const [open, setOpen] = useState(false);
+  const [currentCategory, setCurrentCategory] = useState({});
+  const [categoryItems, setCategoryItems] = useState([]);
+
+  const {addItem, updateItemQuantity} = useCart()
 
   const openModal = () => {
     setOpen(true);
@@ -76,11 +79,10 @@ const [cartData, setCartData] = useState([]);
                 <span className="font-bold">{'$ ' + item.price_info.price}</span>
               </div>
 
-              <button className={`
+              <button type="button" className={`
                 btn ${item?.stock_status === 'out_of_stock' ? 'bg-zinc-700' : 'btn-gradient'}
                 max-lg:mt-2 flex items-center justify-center p-0 size-10
-              `}
-                      type="button" disabled={item?.stock_status === 'out_of_stock'} onClick={() => {}}>
+              `} disabled={item?.stock_status === 'out_of_stock'} onClick={() => addItem(item)}>
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                      stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"
                      className="size-6">

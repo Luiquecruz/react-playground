@@ -1,9 +1,11 @@
 import {useEffect, useRef} from "react";
 import {useClickAway} from "react-use";
+import {useCart} from "../Hooks/useCart";
 import PropTypes from "prop-types";
 
 const MiniCart = ({isOpen, onClose, children}) => {
   const ref = useRef(null);
+  const {totalItems, totalPrice} = useCart()
 
   useEffect(() => {
     const handleKeyDown = (e) => {
@@ -24,7 +26,7 @@ const MiniCart = ({isOpen, onClose, children}) => {
       <div className="cart-overlay">
         <aside ref={ref} className="cart">
           <header className="cart-header">
-            <h3 className="text-2xl">My cart</h3>
+            <h3 className="text-2xl">My cart ({totalItems})</h3>
             <button className="cart-close" type="button" onClick={onClose}>&times;</button>
           </header>
 
@@ -34,7 +36,7 @@ const MiniCart = ({isOpen, onClose, children}) => {
 
           <footer className="cart-footer">
             <button className="inline-flex gap-2 items-center justify-center btn btn-gradient w-full">
-              Checkout
+              {Number(totalPrice) || 'checkout'}
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                    stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"
                    className="size-5">
